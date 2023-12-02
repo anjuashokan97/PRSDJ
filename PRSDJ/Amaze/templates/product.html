@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Product
+{% endblock %}
+
+
+{% block content %}
+<h1 style="color:purple;"><center>This is my product page</center></h1>
+<div class="container text-center col-xl-3" style="font-family:times new roman;font-size:24px;">
+    {% for i in card %}
+    <div class="card text-center mx-3 my-3 border border-warning border-2" style="width:15rem;display:inline-block">
+        <img src="{{i.image}}" class="card-img-top" width="200px" height="350px">
+        <div class="card-body">
+            <h2 class="card-title">{{i.name}}</h2>
+            <p class="price text-danger">Rs. {{i.price}}</p>
+            <p class="stock"><small>Stock:. {{i.stock}}</small></p>
+            <button class="btn btn-primary" onclick="window.location.href='{% url 'file' %}'">Buy</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
